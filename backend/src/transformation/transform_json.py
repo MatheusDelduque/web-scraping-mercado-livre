@@ -29,4 +29,4 @@ def transform_json(input_file, output_file):
     print(f"Transformed data saved to {output_file}")
 
 if __name__ == "__main__":
-    transform_json("../../data/data.jsonl", '../../data/transformed_data.json')
+    transform_json("src/data/data.jsonl", 'src/data/dados_transformados.json')
