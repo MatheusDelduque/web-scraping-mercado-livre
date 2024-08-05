@@ -30,4 +30,4 @@ def load_to_postgres(json_file):
     print(f"Data inserted into the {table_name} table of the {db_name} database.")
 
 if __name__ == "__main__":
-    load_to_postgres('src/data/dados_transformados.json')
+    load_to_postgres('../data/transformed_data.json')
