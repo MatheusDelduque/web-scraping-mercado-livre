@@ -1,11 +1,14 @@
 import pandas as pd
-import json
+from io import StringIO
 from datetime import datetime
 
 def transform_json(input_file, output_file):
 
-    # Read the JSONL file into a pandas DataFrame
-    df = pd.read_json(input_file, lines=True)
+        # Leia o arquivo JSONL para um DataFrame pandas
+    with open(input_file, 'r') as file:
+        data = file.read()
+
+    df = pd.read_json(StringIO(data), lines=True)
 
     # Add a new column with the source URL
     df["_source"] = "https://lista.mercadolivre.com.br/tenis-corrida-masculino"
@@ -29,4 +32,4 @@ def transform_json(input_file, output_file):
     print(f"Transformed data saved to {output_file}")
 
 if __name__ == "__main__":
-    transform_json("src/data/data.jsonl", 'src/data/dados_transformados.json')
+    transform_json("../data/data.jsonl", '../data/transformed_data.json')
